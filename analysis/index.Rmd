@@ -21,7 +21,7 @@ GT package is one of the most amazing package to create tables, and we want to s
 ## How to create a good table?
 An informal definition could be: “A good table sirve para leer de la forma mas rapida y facil un conjunto de datos numericos”.
 
-## 25 examples about how to use
+# 25 examples about how to use this amazing package
 
 
 

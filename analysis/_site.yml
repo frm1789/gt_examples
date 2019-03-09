@@ -1,7 +1,7 @@
-name: myproject
+name: gt_examples
 output_dir: ../docs
 navbar:
-  title: myproject
+  title: gt_examples
   left:
   - text: Home
     href: index.html
@@ -12,7 +12,7 @@ navbar:
   right:
   - icon: fa-github
     text: Source code
-    href: https://github.com/frm1789/myproject
+    href: https://github.com/frm1789/gt_examples
 output:
   workflowr::wflow_html:
     toc: yes

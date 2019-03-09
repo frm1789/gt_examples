@@ -67,4 +67,32 @@ sp500 %>%
 
 ## 3. Table with references 
 
+## 4. Table with spanning columns
+
+This example is [Table
+S2](http://www.genetics.org/content/genetics/suppl/2012/06/28/genetics.112.142448.DC1/TableS2.pdf)
+in [Broman et al. (2015) Genetics 192:267-279
+doi:https://doi.org/10.1534/genetics.112.142448](https://doi.org/10.1534/genetics.112.142448)
+
+```{r tab4_spanners}
+# the table's data
+tab <- data.frame(n=c(300, 450, 600),
+                  all_part_all_crosses = c(4.56, 4.51, 4.49),
+                  all_part_min_crosses = c(4.48, 4.47, 4.44),
+                  tree_part_all_crosses = c(4.43, 4.36, 4.32),
+                  tree_part_min_crosses = c(4.33, 4.33, 4.29))
+
+# create the gt table
+gt(tab) %>%
+    cols_align("center") %>%
+    cols_label(n="total sample size",
+               all_part_all_crosses="all crosses",
+               all_part_min_crosses="min crosses",
+               tree_part_all_crosses="all crosses",
+               tree_part_min_crosses="min crosses") %>%
+    tab_spanner(label="Tree partitions",
+                starts_with("tree")) %>%
+    tab_spanner(label="All partitions",
+                starts_with("all"))
+```
 

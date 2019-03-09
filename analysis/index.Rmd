@@ -23,6 +23,10 @@ An informal definition could be: “A good table sirve para leer de la forma mas
 
 # 25 examples about how to use this amazing package
 
+## 1. Vertical table
 
+## 2. Horizontal table
+
+## 3. Table with references 
 
 

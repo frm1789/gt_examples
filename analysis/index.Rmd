@@ -7,6 +7,22 @@ output:
 ---
 
 # Welcome 
-This is a small list with 25 visualization using gt Package
+This is a small list with 25 visualization using gt Package.  
+
+## What is this?  
+
+GT package is one of the most amazing package to create tables, and we want to show a gallery of examples with full R code to encourage you to use it in your projects.
+
+* How to start with GT Tables
+* How to customize a basic table
+* Examples about how to use
+
+
+## How to create a good table?
+An informal definition could be: “A good table sirve para leer de la forma mas rapida y facil un conjunto de datos numericos”.
+
+## 25 examples about how to use
+
+
 
 

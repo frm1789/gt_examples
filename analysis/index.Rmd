@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "25 examples"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:

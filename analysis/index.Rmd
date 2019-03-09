@@ -6,4 +6,7 @@ output:
     toc: true
 ---
 
-## Welcome to my research website: this is a small test.
+# Welcome 
+This is a small list with 25 visualization using gt Package
+
+

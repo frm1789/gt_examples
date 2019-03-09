@@ -343,7 +343,7 @@ div.section {
 <strong>Last updated:</strong> 2019-03-09
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>myproject/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -371,10 +371,58 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree064a2819e1993004629886db604a6a605247fed8targetblank064a281a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/064a2819e1993004629886db604a6a605247fed8" target="_blank">064a281</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree064a2819e1993004629886db604a6a605247fed8targetblank064a281a" class="panel-collapse collapse">
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190309code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190309)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190309code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190309)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree74ef3bc36087348b80645e8283bd7897f6f15d9ctargetblank74ef3bca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/74ef3bc36087348b80645e8283bd7897f6f15d9c" target="_blank">74ef3bc</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree74ef3bc36087348b80645e8283bd7897f6f15d9ctargetblank74ef3bca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -383,6 +431,10 @@ Great! You are using Git for version control. Tracking code development and conn
 Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    myproject/
+
+Untracked files:
+    Untracked:  code/DeletethisFile.Rmd
+    Untracked:  code/vertical_table.R
 
 </code></pre>
 <p>
@@ -421,6 +473,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/74ef3bc36087348b80645e8283bd7897f6f15d9c/analysis/index.Rmd" target="_blank">74ef3bc</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-09
+</td>
+<td>
+Adding examples
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/frm1789/myproject/901ba7d7382ec44347d6ec2402ae5a3b31ffab9e/docs/index.html" target="_blank">901ba7d</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -682,17 +768,419 @@ Start workflowr project.
 <h2>How to create a good table?</h2>
 <p>An informal definition could be: “A good table sirve para leer de la forma mas rapida y facil un conjunto de datos numericos”.</p>
 </div>
+<div id="how-to-create-a-good-table-1" class="section level2">
+<h2>How to create a good table?</h2>
+<p>An informal definition could be: “A good table sirve para leer de la forma mas rapida y facil un conjunto de datos numericos”.</p>
+</div>
 </div>
 <div id="examples-about-how-to-use-this-amazing-package" class="section level1">
 <h1>25 examples about how to use this amazing package</h1>
 <div id="vertical-table" class="section level2">
 <h2>1. Vertical table</h2>
+<pre class="r"><code>library(gt)
+library(tidyverse)</code></pre>
+<pre><code>── Attaching packages ──────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+✔ tibble  1.4.2     ✔ dplyr   0.7.8
+✔ tidyr   0.8.2     ✔ stringr 1.3.1
+✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>── Conflicts ─────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(glue)</code></pre>
+<pre><code>
+Attaching package: &#39;glue&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:dplyr&#39;:
+
+    collapse</code></pre>
+<pre class="r"><code># Define the start and end dates for the data range
+start_date &lt;- &quot;2010-06-07&quot;
+end_date &lt;- &quot;2010-06-14&quot;
+
+# Create a gt table based on preprocessed
+# `sp500` table data
+sp500 %&gt;%
+  dplyr::filter(date &gt;= start_date &amp; date &lt;= end_date) %&gt;%
+  dplyr::select(-adj_close) %&gt;%
+  dplyr::mutate(date = as.character(date)) %&gt;%
+  gt() %&gt;%
+  tab_header(
+    title = &quot;S&amp;P 500&quot;,
+    subtitle = glue::glue(&quot;{start_date} to {end_date}&quot;)
+  ) %&gt;%
+  fmt_date(
+    columns = vars(date),
+    date_style = 3
+  ) %&gt;%
+  fmt_currency(
+    columns = vars(open, high, low, close),
+    currency = &quot;USD&quot;
+  ) %&gt;%
+  fmt_number(
+    columns = vars(volume),
+    scale_by = 1 / 1E9,
+    pattern = &quot;{x}B&quot;
+  )</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#dpoqqyoofl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#dpoqqyoofl .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#dpoqqyoofl .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dpoqqyoofl .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dpoqqyoofl .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#dpoqqyoofl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dpoqqyoofl .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#dpoqqyoofl .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#dpoqqyoofl .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#dpoqqyoofl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#dpoqqyoofl .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#dpoqqyoofl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dpoqqyoofl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dpoqqyoofl .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#dpoqqyoofl .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#dpoqqyoofl .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#dpoqqyoofl .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#dpoqqyoofl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#dpoqqyoofl .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#dpoqqyoofl .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#dpoqqyoofl .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#dpoqqyoofl .gt_center {
+  text-align: center;
+}
+
+#dpoqqyoofl .gt_left {
+  text-align: left;
+}
+
+#dpoqqyoofl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dpoqqyoofl .gt_font_normal {
+  font-weight: normal;
+}
+
+#dpoqqyoofl .gt_font_bold {
+  font-weight: bold;
+}
+
+#dpoqqyoofl .gt_font_italic {
+  font-style: italic;
+}
+
+#dpoqqyoofl .gt_super {
+  font-size: 65%;
+}
+
+#dpoqqyoofl .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="dpoqqyoofl" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<thead>
+<tr>
+<th colspan='6' class='gt_heading gt_title gt_font_normal gt_center' >S&amp;P 500</th>
+</tr>
+<tr>
+<th colspan='6' class='gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border' >2010-06-07 to 2010-06-14</th>
+</tr>
+</thead>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>date</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>open</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>high</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>low</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>close</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>volume</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>Mon, Jun 14, 2010</td>
+<td class='gt_row gt_right'>$1,095.00</td>
+<td class='gt_row gt_right'>$1,105.91</td>
+<td class='gt_row gt_right'>$1,089.03</td>
+<td class='gt_row gt_right'>$1,089.63</td>
+<td class='gt_row gt_right'>4.43B</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Fri, Jun 11, 2010</td>
+<td class='gt_row gt_right gt_striped'>$1,082.65</td>
+<td class='gt_row gt_right gt_striped'>$1,092.25</td>
+<td class='gt_row gt_right gt_striped'>$1,077.12</td>
+<td class='gt_row gt_right gt_striped'>$1,091.60</td>
+<td class='gt_row gt_right gt_striped'>4.06B</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Thu, Jun 10, 2010</td>
+<td class='gt_row gt_right'>$1,058.77</td>
+<td class='gt_row gt_right'>$1,087.85</td>
+<td class='gt_row gt_right'>$1,058.77</td>
+<td class='gt_row gt_right'>$1,086.84</td>
+<td class='gt_row gt_right'>5.14B</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Wed, Jun 9, 2010</td>
+<td class='gt_row gt_right gt_striped'>$1,062.75</td>
+<td class='gt_row gt_right gt_striped'>$1,077.74</td>
+<td class='gt_row gt_right gt_striped'>$1,052.25</td>
+<td class='gt_row gt_right gt_striped'>$1,055.69</td>
+<td class='gt_row gt_right gt_striped'>5.98B</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Tue, Jun 8, 2010</td>
+<td class='gt_row gt_right'>$1,050.81</td>
+<td class='gt_row gt_right'>$1,063.15</td>
+<td class='gt_row gt_right'>$1,042.17</td>
+<td class='gt_row gt_right'>$1,062.00</td>
+<td class='gt_row gt_right'>6.19B</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Mon, Jun 7, 2010</td>
+<td class='gt_row gt_right gt_striped'>$1,065.84</td>
+<td class='gt_row gt_right gt_striped'>$1,071.36</td>
+<td class='gt_row gt_right gt_striped'>$1,049.86</td>
+<td class='gt_row gt_right gt_striped'>$1,050.47</td>
+<td class='gt_row gt_right gt_striped'>5.47B</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
 </div>
 <div id="horizontal-table" class="section level2">
 <h2>2. Horizontal table</h2>
 </div>
 <div id="table-with-references" class="section level2">
 <h2>3. Table with references</h2>
+<br> <br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.5.1 (2018-07-02)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: OS X El Capitan 10.11.6
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] bindrcpp_0.2.2  glue_1.3.0      forcats_0.3.0   stringr_1.3.1  
+ [5] dplyr_0.7.8     purrr_0.2.5     readr_1.1.1     tidyr_0.8.2    
+ [9] tibble_1.4.2    ggplot2_3.1.0   tidyverse_1.2.1 gt_0.1.0       
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_0.2.5 haven_1.1.2      lattice_0.20-35  colorspace_1.3-2
+ [5] htmltools_0.3.6  yaml_2.2.0       rlang_0.3.0.1    pillar_1.3.1    
+ [9] withr_2.1.2      modelr_0.1.2     readxl_1.1.0     bindr_0.1.1     
+[13] plyr_1.8.4       munsell_0.5.0    commonmark_1.7   gtable_0.2.0    
+[17] workflowr_1.2.0  cellranger_1.1.0 rvest_0.3.2      evaluate_0.12   
+[21] knitr_1.20       broom_0.5.0      Rcpp_1.0.0       scales_1.0.0    
+[25] backports_1.1.2  checkmate_1.8.5  jsonlite_1.6     fs_1.2.6        
+[29] hms_0.4.2        digest_0.6.18    stringi_1.2.4    grid_3.5.1      
+[33] rprojroot_1.3-2  cli_1.0.1        tools_3.5.1      magrittr_1.5    
+[37] sass_0.1.0.9000  lazyeval_0.2.1   crayon_1.3.4     whisker_0.3-2   
+[41] pkgconfig_2.0.2  xml2_1.2.0       lubridate_1.7.4  assertthat_0.2.0
+[45] rmarkdown_1.10   httr_1.3.1       rstudioapi_0.8   R6_2.3.0        
+[49] nlme_3.1-137     git2r_0.23.0     compiler_3.5.1  </code></pre>
+</div>
 </div>
 </div>
 

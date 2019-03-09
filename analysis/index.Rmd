@@ -5,6 +5,10 @@ output:
   workflowr::wflow_html:
     toc: true
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
 
 # Welcome 
 This is a small list with 25 visualization using gt Package.  
@@ -25,7 +29,7 @@ An informal definition could be: “A good table sirve para leer de la forma mas
 # 25 examples about how to use this amazing package
 
 ## 1. Vertical table
-```{r vertical_table}
+```{r vertical_table, message=FALSE, warning=TRUE, paged.print=FALSE}
 library(gt)
 library(tidyverse)
 library(glue)

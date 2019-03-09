@@ -6,4 +6,4 @@ output:
     toc: false
 ---
 
-Welcome to my research website.
+Welcome to my research website: this is a small test.

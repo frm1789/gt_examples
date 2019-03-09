@@ -3,7 +3,7 @@ title: "Home"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    toc: false
+    toc: true
 ---
 
-Welcome to my research website: this is a small test.
+## Welcome to my research website: this is a small test.

@@ -25,9 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -102,6 +101,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -116,7 +118,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -136,6 +137,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -157,18 +195,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -322,7 +419,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -331,7 +428,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -343,7 +440,7 @@ div.section {
 <strong>Last updated:</strong> 2019-03-10
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>gt_examples/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -359,12 +456,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -419,10 +516,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree7410d00d7ab7278cac7eef220123673bd375567btargetblank7410d00a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/7410d00d7ab7278cac7eef220123673bd375567b" target="_blank">7410d00</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreec18da9aca01a154e60b8a9b6ce335ed544e59bc6targetblankc18da9aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/c18da9aca01a154e60b8a9b6ce335ed544e59bc6" target="_blank">c18da9a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree7410d00d7ab7278cac7eef220123673bd375567btargetblank7410d00a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreec18da9aca01a154e60b8a9b6ce335ed544e59bc6targetblankc18da9aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -438,6 +535,10 @@ Untracked files:
     Untracked:  code/vertical_table.R
     Untracked:  data/gt_datasets.svg
     Untracked:  trash.Rmd
+    Untracked:  trash2.R
+
+Unstaged changes:
+    Conflicted: analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -476,6 +577,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/frm1789/myproject/c18da9aca01a154e60b8a9b6ce335ed544e59bc6/docs/index.html" target="_blank">c18da9a</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1202,8 +1320,14 @@ Start workflowr project.
 <div id="vertical-table" class="section level2">
 <h2>1. Vertical table</h2>
 <pre class="r"><code>library(gt)
-library(tidyverse)
-library(glue)
+library(tidyverse)</code></pre>
+<pre><code>Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
+<pre><code>Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
+<pre class="r"><code>library(glue)
 
 # Define the start and end dates for the data range
 start_date &lt;- &quot;2010-06-07&quot;
@@ -1546,8 +1670,11 @@ sp500 %&gt;%
 <!--gt table end-->
 </div>
 </div>
+<div id="horizontal-table" class="section level2">
+<h2>2. Horizontal Table</h2>
+</div>
 <div id="table-with-references" class="section level2">
-<h2>2. Table with references</h2>
+<h2>3. Table with references</h2>
 <p>This example is from <a href="http://www.aclweb.org/anthology/W11-0705">Table 1</a> From proceedings of the Workshop on Language in Social Media (LSM 2011), pages 30–38, Portland, Oregon, 23 June 2011. (c) 2011 Association for Computational Linguistics</p>
 <pre class="r"><code># the table&#39;s data
 exa &lt;- data.frame( acronym = c(&quot;gr8, gr8t&quot;, &quot;lol&quot;, &quot;rotf&quot;, &quot;bff&quot;),
@@ -1560,7 +1687,7 @@ gt(exa) %&gt;%
              english=&quot;English expansion&quot;) %&gt;%
   tab_source_note(
     source_note = &quot;Table 1: Example acrynom and their expansion in the acronym dictionary.&quot;
-  ) </code></pre>
+  )</code></pre>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -3153,6 +3280,640 @@ gt(exa2) %&gt;%
 </tbody>
 </table>
 <!--gt table end-->
+</div>
+</div>
+<div id="table-of-coefficients" class="section level2">
+<h2>7. Table of coefficients</h2>
+<p>For a table of estimated regression coefficients from the fit of a linear model, you might first want to use the <a href="https://broom.tidyverse.org">broom</a> package to tidy the output.</p>
+<pre class="r"><code>lm_out &lt;- lm(Volume ~ Height * Girth, data=trees)
+broom::tidy(lm_out) %&gt;%
+    gt(rowname_col=&quot;term&quot;) %&gt;%
+    tab_stubhead_label(&quot;term&quot;) %&gt;%
+    fmt_number(column=matches(&quot;^[^p]&quot;), decimals=2) %&gt;%
+    fmt_number(column=matches(&quot;^p&quot;), decimals=6) %&gt;%
+    cols_label(std.error=&quot;SE&quot;,
+               statistic=&quot;t stat&quot;)</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qrqxiulira .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#qrqxiulira .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#qrqxiulira .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qrqxiulira .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qrqxiulira .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#qrqxiulira .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#qrqxiulira .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#qrqxiulira .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#qrqxiulira .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#qrqxiulira .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#qrqxiulira .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#qrqxiulira .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qrqxiulira .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qrqxiulira .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#qrqxiulira .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#qrqxiulira .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#qrqxiulira .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#qrqxiulira .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#qrqxiulira .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#qrqxiulira .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#qrqxiulira .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#qrqxiulira .gt_center {
+  text-align: center;
+}
+
+#qrqxiulira .gt_left {
+  text-align: left;
+}
+
+#qrqxiulira .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qrqxiulira .gt_font_normal {
+  font-weight: normal;
+}
+
+#qrqxiulira .gt_font_bold {
+  font-weight: bold;
+}
+
+#qrqxiulira .gt_font_italic {
+  font-style: italic;
+}
+
+#qrqxiulira .gt_super {
+  font-size: 65%;
+}
+
+#qrqxiulira .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="qrqxiulira" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>term</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>estimate</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>SE</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>t stat</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>p.value</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_stub gt_left'>(Intercept)</td>
+<td class='gt_row gt_right'>69.40</td>
+<td class='gt_row gt_right'>23.84</td>
+<td class='gt_row gt_right'>2.91</td>
+<td class='gt_row gt_right'>0.007131</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Height</td>
+<td class='gt_row gt_right gt_striped'>-1.30</td>
+<td class='gt_row gt_right gt_striped'>0.31</td>
+<td class='gt_row gt_right gt_striped'>-4.19</td>
+<td class='gt_row gt_right gt_striped'>0.000270</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Girth</td>
+<td class='gt_row gt_right'>-5.86</td>
+<td class='gt_row gt_right'>1.92</td>
+<td class='gt_row gt_right'>-3.05</td>
+<td class='gt_row gt_right'>0.005109</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Height:Girth</td>
+<td class='gt_row gt_right gt_striped'>0.13</td>
+<td class='gt_row gt_right gt_striped'>0.02</td>
+<td class='gt_row gt_right gt_striped'>5.52</td>
+<td class='gt_row gt_right gt_striped'>0.000007</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+</div>
+<div id="compare-of-fit-of-multiple-model" class="section level2">
+<h2>8. Compare of fit of multiple model</h2>
+<p>To compare the fit of multiple models, you may be interested in the <a href="https://github.com/vincentarelbundock/gtsummary">gt summary</a> package. For example, here is a comparison of the fit of a linear model with and without an interaction term.</p>
+<pre class="r"><code>lm_add &lt;- lm(Volume ~ Height + Girth, data=trees)
+lm_int &lt;- lm(Volume ~ Height * Girth, data=trees)
+list(add=lm_add, int=lm_int) %&gt;%
+    gtsummary::gtsummary(statistic=&quot;conf.int&quot;) %&gt;%
+    cols_label(add=&quot;Additive&quot;,
+               int=&quot;Interactive&quot;)</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qumtuwadgs .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#qumtuwadgs .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#qumtuwadgs .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qumtuwadgs .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qumtuwadgs .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#qumtuwadgs .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#qumtuwadgs .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#qumtuwadgs .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#qumtuwadgs .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#qumtuwadgs .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#qumtuwadgs .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#qumtuwadgs .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qumtuwadgs .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qumtuwadgs .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#qumtuwadgs .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#qumtuwadgs .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#qumtuwadgs .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#qumtuwadgs .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#qumtuwadgs .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#qumtuwadgs .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#qumtuwadgs .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#qumtuwadgs .gt_center {
+  text-align: center;
+}
+
+#qumtuwadgs .gt_left {
+  text-align: left;
+}
+
+#qumtuwadgs .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qumtuwadgs .gt_font_normal {
+  font-weight: normal;
+}
+
+#qumtuwadgs .gt_font_bold {
+  font-weight: bold;
+}
+
+#qumtuwadgs .gt_font_italic {
+  font-style: italic;
+}
+
+#qumtuwadgs .gt_super {
+  font-size: 65%;
+}
+
+#qumtuwadgs .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="qumtuwadgs" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'></th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Additive</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Interactive</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr class='gt_group_heading_row'>
+<td colspan='3' class='gt_empty_group_heading'></td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>(Intercept)</td>
+<td class='gt_row gt_left'>-57.988</td>
+<td class='gt_row gt_left'>69.396</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'></td>
+<td class='gt_row gt_left gt_striped'>[-75.682, -40.293]</td>
+<td class='gt_row gt_left gt_striped'>[20.489, 118.303]</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Girth</td>
+<td class='gt_row gt_left'>4.708</td>
+<td class='gt_row gt_left'>-5.856</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'></td>
+<td class='gt_row gt_left gt_striped'>[4.167, 5.249]</td>
+<td class='gt_row gt_left gt_striped'>[-9.798, -1.914]</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Height</td>
+<td class='gt_row gt_left'>0.339</td>
+<td class='gt_row gt_left'>-1.297</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'></td>
+<td class='gt_row gt_left gt_striped'>[0.073, 0.606]</td>
+<td class='gt_row gt_left gt_striped'>[-1.933, -0.661]</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Height:Girth</td>
+<td class='gt_row gt_left'></td>
+<td class='gt_row gt_left'>0.135</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'></td>
+<td class='gt_row gt_left gt_striped'></td>
+<td class='gt_row gt_left gt_striped'>[0.085, 0.185]</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='3' class='gt_empty_group_heading'></td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Num.Obs.</td>
+<td class='gt_row gt_left'>31</td>
+<td class='gt_row gt_left'>31</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>R2</td>
+<td class='gt_row gt_left gt_striped'>0.948</td>
+<td class='gt_row gt_left gt_striped'>0.976</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Adj.R2</td>
+<td class='gt_row gt_left'>0.944</td>
+<td class='gt_row gt_left'>0.973</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>AIC</td>
+<td class='gt_row gt_left gt_striped'>176.9</td>
+<td class='gt_row gt_left gt_striped'>155.5</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>BIC</td>
+<td class='gt_row gt_left'>182.6</td>
+<td class='gt_row gt_left'>162.6</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>Log.Lik.</td>
+<td class='gt_row gt_left gt_striped'>-84.455</td>
+<td class='gt_row gt_left gt_striped'>-72.735</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
 </div> <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -3177,25 +3938,30 @@ attached base packages:
 
 other attached packages:
  [1] scales_1.0.0      viridis_0.5.1     viridisLite_0.3.0
- [4] bindrcpp_0.2.2    glue_1.3.0        forcats_0.3.0    
- [7] stringr_1.3.1     dplyr_0.7.8       purrr_0.2.5      
-[10] readr_1.1.1       tidyr_0.8.2       tibble_1.4.2     
-[13] ggplot2_3.1.0     tidyverse_1.2.1   gt_0.1.0         
+ [4] glue_1.3.0        forcats_0.4.0     stringr_1.4.0    
+ [7] dplyr_0.8.0.1     purrr_0.3.1       readr_1.3.1      
+[10] tidyr_0.8.3       tibble_2.0.1      ggplot2_3.1.0    
+[13] tidyverse_1.2.1   gt_0.1.0         
 
 loaded via a namespace (and not attached):
- [1] tidyselect_0.2.5 haven_1.1.2      lattice_0.20-35  colorspace_1.3-2
- [5] htmltools_0.3.6  yaml_2.2.0       rlang_0.3.0.1    pillar_1.3.1    
- [9] withr_2.1.2      modelr_0.1.2     readxl_1.1.0     bindr_0.1.1     
-[13] plyr_1.8.4       munsell_0.5.0    commonmark_1.7   gtable_0.2.0    
-[17] workflowr_1.2.0  cellranger_1.1.0 rvest_0.3.2      evaluate_0.12   
-[21] knitr_1.20       broom_0.5.0      Rcpp_1.0.0       backports_1.1.2 
-[25] checkmate_1.8.5  jsonlite_1.6     fs_1.2.6         gridExtra_2.3   
-[29] hms_0.4.2        digest_0.6.18    stringi_1.2.4    grid_3.5.1      
-[33] rprojroot_1.3-2  cli_1.0.1        tools_3.5.1      magrittr_1.5    
-[37] sass_0.1.0.9000  lazyeval_0.2.1   crayon_1.3.4     whisker_0.3-2   
-[41] pkgconfig_2.0.2  xml2_1.2.0       lubridate_1.7.4  assertthat_0.2.0
-[45] rmarkdown_1.10   httr_1.3.1       rstudioapi_0.8   R6_2.3.0        
-[49] nlme_3.1-137     git2r_0.23.0     compiler_3.5.1  </code></pre>
+ [1] tidyselect_0.2.5     xfun_0.5             gtsummary_0.0.0.9000
+ [4] haven_2.1.0          lattice_0.20-38      colorspace_1.4-0    
+ [7] generics_0.0.2       htmltools_0.3.6      yaml_2.2.0          
+[10] rlang_0.3.1          pillar_1.3.1         withr_2.1.2         
+[13] modelr_0.1.4         readxl_1.3.0         plyr_1.8.4          
+[16] munsell_0.5.0        commonmark_1.7       gtable_0.2.0        
+[19] workflowr_1.2.0      cellranger_1.1.0     rvest_0.3.2         
+[22] evaluate_0.13        knitr_1.22           broom_0.5.1         
+[25] Rcpp_1.0.0           backports_1.1.3      checkmate_1.9.1     
+[28] jsonlite_1.6         fs_1.2.6             gridExtra_2.3       
+[31] hms_0.4.2            digest_0.6.18        stringi_1.3.1       
+[34] grid_3.5.1           rprojroot_1.3-2      cli_1.0.1           
+[37] tools_3.5.1          magrittr_1.5         sass_0.1.0.9000     
+[40] lazyeval_0.2.1       crayon_1.3.4         whisker_0.3-2       
+[43] pkgconfig_2.0.2      xml2_1.2.0           lubridate_1.7.4     
+[46] assertthat_0.2.0     rmarkdown_1.11       httr_1.4.0          
+[49] rstudioapi_0.9.0     R6_2.4.0             nlme_3.1-137        
+[52] git2r_0.24.0         compiler_3.5.1      </code></pre>
 </div>
 </div>
 </div>

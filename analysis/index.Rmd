@@ -230,7 +230,7 @@ broom::tidy(lm_out) %>%
 ```
 
 
-## 8. Compare of fit of multiple model
+## 8. Compare fit of multiple models
 
 To compare the fit of multiple models, you may be interested in the
 [gt summary](https://github.com/vincentarelbundock/gtsummary) package.

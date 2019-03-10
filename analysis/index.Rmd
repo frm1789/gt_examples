@@ -73,7 +73,7 @@ sp500 %>%
 This example is [Table
 S2](http://www.genetics.org/content/genetics/suppl/2012/06/28/genetics.112.142448.DC1/TableS2.pdf)
 in [Broman et al. (2015) Genetics 192:267-279
-doi:https://doi.org/10.1534/genetics.112.142448](https://doi.org/10.1534/genetics.112.142448)
+doi:10.1534/genetics.112.142448](https://doi.org/10.1534/genetics.112.142448)
 
 ```{r tab4_spanners}
 # the table's data

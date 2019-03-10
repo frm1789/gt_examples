@@ -5,4 +5,4 @@ output:
     toc: false
 ---
 
-Describe your project.
+Examples of tables with the [gt](https://gt.rstudio.com) package.

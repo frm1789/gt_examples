@@ -127,3 +127,38 @@ gt(tab, rowname_col="genotype") %>%
                 columns=TRUE) %>%
     tab_stubhead_label("DO-360 genotype")
 ```
+
+## 6. Counts and percentages, with an extra column.
+
+This example is Table S4 of [Lobo et al. bioRxiv
+doi:10.1101/529040](https://doi.org/10.1101/529040).
+It is much like example 5, but has an additional column at the beginning.
+
+```{r tab6_counts_and_percents}
+tab <- data.frame(DO358_genotype = c("AA", "AA", "AA", "AB", "AB", "AB", "BB", "BB", "BB"),
+                  DO344_genotype = c("AA", "AB", "BB", "AA", "AB", "BB", "AA", "AB", "BB"),
+                  A_count = c(2394215, 869613, 103036, 686970, 297500, 55982, 73727, 47000, 542),
+                  A_proportion = c(0.99747944497795, 0.794823306181542, 0.590911176362635,
+                                   0.718274560155246, 0.51429835873996, 0.299220173924198,
+                                   0.428685226532701, 0.219100940269354, 0.00457986885689177),
+                   B_count = c(6050, 224483, 71332, 269447, 280958, 131111, 98257, 167513, 117802),
+                   B_proportion = c(0.00252055502204965, 0.205176693818458, 0.409088823637365,
+                                    0.281725439844754, 0.48570164126004, 0.700779826075802,
+                                    0.571314773467299, 0.780899059730646, 0.995420131143108),
+                   stringsAsFactors=FALSE)
+
+gt(tab) %>%
+    fmt_percent(ends_with("proportion"),
+                decimals=1,
+                pattern="({x})") %>%
+    cols_align("right") %>%
+    cols_align("center", columns=ends_with("genotype")) %>%
+    cols_label(DO358_genotype="DO 358 genotype",
+               DO344_genotype="DO 344 genotype",
+               A_count = "A count",
+               A_proportion = "(%)",
+               B_count = "B count",
+               B_proportion = "(%)") %>%
+    tab_spanner(label="allele in DO-358 microbiome",
+                columns=matches("^[AB]_"))
+```

@@ -225,8 +225,10 @@ broom::tidy(lm_out) %>%
     tab_stubhead_label("term") %>%
     fmt_number(column=matches("^[^p]"), decimals=2) %>%
     fmt_number(column=matches("^p"), decimals=6) %>%
+    cols_align("left", column=matches("^p")) %>%
     cols_label(std.error="SE",
-               statistic="t stat")
+               statistic="t stat",
+	       p.value="P value")
 ```
 
 

@@ -23,7 +23,7 @@ GT package is one of the most amazing package to create tables, and we want to s
 
 
 ## How to create a good table?
-An informal definition could be: “A good table sirve para leer de la forma mas rapida y facil un conjunto de datos numericos”.
+An informal definition could be: "A good table is used to read a set of numerical data in the quickest and easiest way"
 
 
 # 25 examples about how to use this amazing package
@@ -67,6 +67,26 @@ sp500 %>%
 ## 2. Horizontal table
 
 ## 3. Table with references
+
+This example is from [Table
+1](http://www.aclweb.org/anthology/W11-0705)
+From proceedings of the Workshop on Language in Social Media (LSM 2011), pages 30–38, Portland, Oregon, 23 June 2011. (c) 2011 Association for Computational Linguistics
+
+```{r tab3_reference}
+# the table's data
+exa <- data.frame( acronym = c("gr8, gr8t", "lol", "rotf", "bff"),
+                  english = c("great","laughing out loud", "rolling on the floor", "best friend forever"))
+
+# create the gt table
+gt(exa) %>%
+  cols_align("left") %>%
+  cols_label(acronym="Acronym",
+             english="English expansion") %>%
+  tab_source_note(
+    source_note = "Table 1: Example acrynom and their expansion in the acronym dictionary."
+  )
+
+```
 
 ## 4. Table with spanning columns
 

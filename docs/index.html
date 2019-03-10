@@ -419,10 +419,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreecbb34ac9329d34043df66a68721db4fd42a0f2f0targetblankcbb34aca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/cbb34ac9329d34043df66a68721db4fd42a0f2f0" target="_blank">cbb34ac</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree7410d00d7ab7278cac7eef220123673bd375567btargetblank7410d00a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/7410d00d7ab7278cac7eef220123673bd375567b" target="_blank">7410d00</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreecbb34ac9329d34043df66a68721db4fd42a0f2f0targetblankcbb34aca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree7410d00d7ab7278cac7eef220123673bd375567btargetblank7410d00a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -476,6 +476,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/7410d00d7ab7278cac7eef220123673bd375567b/analysis/index.Rmd" target="_blank">7410d00</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Change style
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/frm1789/myproject/ec56ac6b56b185b90aa4ac26199fe4e5ec429606/docs/index.html" target="_blank">ec56ac6</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1512,11 +1546,8 @@ sp500 %&gt;%
 <!--gt table end-->
 </div>
 </div>
-<div id="horizontal-table" class="section level2">
-<h2>2. Horizontal table</h2>
-</div>
 <div id="table-with-references" class="section level2">
-<h2>3. Table with references</h2>
+<h2>2. Table with references</h2>
 <p>This example is from <a href="http://www.aclweb.org/anthology/W11-0705">Table 1</a> From proceedings of the Workshop on Language in Social Media (LSM 2011), pages 30–38, Portland, Oregon, 23 June 2011. (c) 2011 Association for Computational Linguistics</p>
 <pre class="r"><code># the table&#39;s data
 exa &lt;- data.frame( acronym = c(&quot;gr8, gr8t&quot;, &quot;lol&quot;, &quot;rotf&quot;, &quot;bff&quot;),
@@ -1805,7 +1836,7 @@ gt(exa) %&gt;%
 </div>
 </div>
 <div id="table-with-spanning-columns" class="section level2">
-<h2>4. Table with spanning columns</h2>
+<h2>3. Table with spanning columns</h2>
 <p>This example is <a href="http://www.genetics.org/content/genetics/suppl/2012/06/28/genetics.112.142448.DC1/TableS2.pdf">Table S2</a> in <a href="https://doi.org/10.1534/genetics.112.142448">Broman et al. (2015) Genetics 192:267-279 doi:10.1534/genetics.112.142448</a></p>
 <pre class="r"><code># the table&#39;s data
 tab &lt;- data.frame(n=c(300, 450, 600),
@@ -2108,7 +2139,7 @@ gt(tab) %&gt;%
 </div>
 </div>
 <div id="counts-and-percentages" class="section level2">
-<h2>5. Counts and percentages</h2>
+<h2>4. Counts and percentages</h2>
 <p>This example is Table S2 of <a href="https://doi.org/10.1101/529040">Lobo et al. bioRxiv doi:10.1101/529040</a>, with columns containing both counts and percentages, with the percentages in parentheses.</p>
 <pre class="r"><code>tab &lt;- data.frame(A_count = c(8863572, 2870063, 671722),
                   A_proportion=c(0.853601028762177, 0.727484285290261, 0.556184650236973),
@@ -2411,7 +2442,7 @@ gt(tab, rowname_col=&quot;genotype&quot;) %&gt;%
 </div>
 </div>
 <div id="counts-and-percentages-with-an-extra-column." class="section level2">
-<h2>6. Counts and percentages, with an extra column.</h2>
+<h2>5. Counts and percentages, with an extra column.</h2>
 <p>This example is Table S4 of <a href="https://doi.org/10.1101/529040">Lobo et al. bioRxiv doi:10.1101/529040</a>. It is much like example 5, but has an additional column at the beginning.</p>
 <pre class="r"><code>tab &lt;- data.frame(DO358_genotype = c(&quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;AB&quot;, &quot;AB&quot;, &quot;BB&quot;, &quot;BB&quot;, &quot;BB&quot;),
                   DO344_genotype = c(&quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;),
@@ -2769,6 +2800,359 @@ gt(tab) %&gt;%
 </tbody>
 </table>
 <!--gt table end-->
+</div>
+</div>
+<div id="adding-colors-from-viridis-palette" class="section level2">
+<h2>6. Adding colors from Viridis palette</h2>
+<p>This example is using the dataset gtcars included into gt package and Viridis palette.</p>
+<pre class="r"><code>library(tidyverse) 
+library(viridis)
+library(scales)
+library(gt) 
+
+#selecting the data
+exa2 &lt;- gtcars %&gt;% 
+  select(mfr, hp) %&gt;% 
+  group_by(mfr) %&gt;% 
+  summarise(mean(hp))
+
+#choosing colors
+q_colors =  19 
+v_colors =  viridis(q_colors, option =&quot;D&quot;)
+
+#creating table
+gt(exa2) %&gt;% 
+  data_color(columns=vars(&quot;mean(hp)&quot;), 
+             color=scales::col_bin( bins=c(100, 200, 300, 400, 500, 600,700), 
+             palette = v_colors, 
+             domain=c(0, 700)) ) </code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#yceyxjeaic .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#yceyxjeaic .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#yceyxjeaic .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yceyxjeaic .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yceyxjeaic .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#yceyxjeaic .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yceyxjeaic .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#yceyxjeaic .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#yceyxjeaic .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#yceyxjeaic .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#yceyxjeaic .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#yceyxjeaic .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yceyxjeaic .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yceyxjeaic .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#yceyxjeaic .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#yceyxjeaic .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#yceyxjeaic .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#yceyxjeaic .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#yceyxjeaic .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#yceyxjeaic .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#yceyxjeaic .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#yceyxjeaic .gt_center {
+  text-align: center;
+}
+
+#yceyxjeaic .gt_left {
+  text-align: left;
+}
+
+#yceyxjeaic .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yceyxjeaic .gt_font_normal {
+  font-weight: normal;
+}
+
+#yceyxjeaic .gt_font_bold {
+  font-weight: bold;
+}
+
+#yceyxjeaic .gt_font_italic {
+  font-style: italic;
+}
+
+#yceyxjeaic .gt_super {
+  font-size: 65%;
+}
+
+#yceyxjeaic .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="yceyxjeaic" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>mfr</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>mean(hp)</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>Acura</td>
+<td class='gt_row gt_right' style="background-color:#7BD151;color:#000000FF;">573.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Aston Martin</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#7BD151;color:#000000FF;">539.5000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Audi</td>
+<td class='gt_row gt_right' style="background-color:#24A883;color:#000000FF;">482.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Bentley</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#7BD151;color:#000000FF;">500.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>BMW</td>
+<td class='gt_row gt_right' style="background-color:#24A883;color:#000000FF;">443.4000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Chevrolet</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#FDE725;color:#000000FF;">650.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Dodge</td>
+<td class='gt_row gt_right' style="background-color:#FDE725;color:#000000FF;">645.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Ferrari</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#FDE725;color:#000000FF;">660.7778</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Ford</td>
+<td class='gt_row gt_right' style="background-color:#FDE725;color:#000000FF;">647.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Jaguar</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#2A788E;color:#FFFFFFFF;">340.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Lamborghini</td>
+<td class='gt_row gt_right' style="background-color:#FDE725;color:#000000FF;">620.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Lotus</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#24A883;color:#000000FF;">400.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Maserati</td>
+<td class='gt_row gt_right' style="background-color:#24A883;color:#000000FF;">401.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>McLaren</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#7BD151;color:#000000FF;">570.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Mercedes-Benz</td>
+<td class='gt_row gt_right' style="background-color:#24A883;color:#000000FF;">416.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Nissan</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#7BD151;color:#000000FF;">545.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Porsche</td>
+<td class='gt_row gt_right' style="background-color:#2A788E;color:#FFFFFFFF;">315.0000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Rolls-Royce</td>
+<td class='gt_row gt_right gt_striped' style="background-color:#7BD151;color:#000000FF;">593.5000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Tesla</td>
+<td class='gt_row gt_right' style="background-color:#414487;color:#FFFFFFFF;">259.0000</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
 </div> <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2792,9 +3176,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] bindrcpp_0.2.2  glue_1.3.0      forcats_0.3.0   stringr_1.3.1  
- [5] dplyr_0.7.8     purrr_0.2.5     readr_1.1.1     tidyr_0.8.2    
- [9] tibble_1.4.2    ggplot2_3.1.0   tidyverse_1.2.1 gt_0.1.0       
+ [1] scales_1.0.0      viridis_0.5.1     viridisLite_0.3.0
+ [4] bindrcpp_0.2.2    glue_1.3.0        forcats_0.3.0    
+ [7] stringr_1.3.1     dplyr_0.7.8       purrr_0.2.5      
+[10] readr_1.1.1       tidyr_0.8.2       tibble_1.4.2     
+[13] ggplot2_3.1.0     tidyverse_1.2.1   gt_0.1.0         
 
 loaded via a namespace (and not attached):
  [1] tidyselect_0.2.5 haven_1.1.2      lattice_0.20-35  colorspace_1.3-2
@@ -2802,8 +3188,8 @@ loaded via a namespace (and not attached):
  [9] withr_2.1.2      modelr_0.1.2     readxl_1.1.0     bindr_0.1.1     
 [13] plyr_1.8.4       munsell_0.5.0    commonmark_1.7   gtable_0.2.0    
 [17] workflowr_1.2.0  cellranger_1.1.0 rvest_0.3.2      evaluate_0.12   
-[21] knitr_1.20       broom_0.5.0      Rcpp_1.0.0       scales_1.0.0    
-[25] backports_1.1.2  checkmate_1.8.5  jsonlite_1.6     fs_1.2.6        
+[21] knitr_1.20       broom_0.5.0      Rcpp_1.0.0       backports_1.1.2 
+[25] checkmate_1.8.5  jsonlite_1.6     fs_1.2.6         gridExtra_2.3   
 [29] hms_0.4.2        digest_0.6.18    stringi_1.2.4    grid_3.5.1      
 [33] rprojroot_1.3-2  cli_1.0.1        tools_3.5.1      magrittr_1.5    
 [37] sass_0.1.0.9000  lazyeval_0.2.1   crayon_1.3.4     whisker_0.3-2   

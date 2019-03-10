@@ -64,14 +64,12 @@ sp500 %>%
   )
 ```
 
-## 2. Horizontal table
-
-## 3. Table with references 
+## 2. Table with references 
 This example is from [Table
 1](http://www.aclweb.org/anthology/W11-0705)
 From proceedings of the Workshop on Language in Social Media (LSM 2011), pages 30–38, Portland, Oregon, 23 June 2011. (c) 2011 Association for Computational Linguistics
 
-```{r tab3_reference}
+```{r tab2_reference}
 # the table's data
 exa <- data.frame( acronym = c("gr8, gr8t", "lol", "rotf", "bff"),
                   english = c("great","laughing out loud", "rolling on the floor", "best friend forever"))
@@ -87,14 +85,14 @@ gt(exa) %>%
 
 ```
 
-## 4. Table with spanning columns
+## 3. Table with spanning columns
 
 This example is [Table
 S2](http://www.genetics.org/content/genetics/suppl/2012/06/28/genetics.112.142448.DC1/TableS2.pdf)
 in [Broman et al. (2015) Genetics 192:267-279
 doi:10.1534/genetics.112.142448](https://doi.org/10.1534/genetics.112.142448)
 
-```{r tab4_spanners}
+```{r tab3_spanners}
 # the table's data
 tab <- data.frame(n=c(300, 450, 600),
                   all_part_all_crosses = c(4.56, 4.51, 4.49),
@@ -117,14 +115,14 @@ gt(tab) %>%
 ```
 
 
-## 5. Counts and percentages
+## 4. Counts and percentages
 
 This example is Table S2 of [Lobo et al. bioRxiv
 doi:10.1101/529040](https://doi.org/10.1101/529040), with columns
 containing both counts and percentages, with the percentages in
 parentheses.
 
-```{r tab5_counts_and_percents}
+```{r tab4_counts_and_percents}
 tab <- data.frame(A_count = c(8863572, 2870063, 671722),
                   A_proportion=c(0.853601028762177, 0.727484285290261, 0.556184650236973),
                   B_count = c(1520169, 1075126, 536010),
@@ -147,13 +145,13 @@ gt(tab, rowname_col="genotype") %>%
     tab_stubhead_label("DO-360 genotype")
 ```
 
-## 6. Counts and percentages, with an extra column.
+## 5. Counts and percentages, with an extra column.
 
 This example is Table S4 of [Lobo et al. bioRxiv
 doi:10.1101/529040](https://doi.org/10.1101/529040).
 It is much like example 5, but has an additional column at the beginning.
 
-```{r tab6_counts_and_percents}
+```{r tab5_counts_and_percents}
 tab <- data.frame(DO358_genotype = c("AA", "AA", "AA", "AB", "AB", "AB", "BB", "BB", "BB"),
                   DO344_genotype = c("AA", "AB", "BB", "AA", "AB", "BB", "AA", "AB", "BB"),
                   A_count = c(2394215, 869613, 103036, 686970, 297500, 55982, 73727, 47000, 542),
@@ -180,4 +178,32 @@ gt(tab) %>%
                B_proportion = "(%)") %>%
     tab_spanner(label="allele in DO-358 microbiome",
                 columns=matches("^[AB]_"))
+```
+
+
+## 6. Adding colors from Viridis palette
+
+This example is using the dataset gtcars included into gt package and Viridis palette. 
+```{r tab6_colors_from_viridis_palette}
+library(tidyverse) 
+library(viridis)
+library(scales)
+library(gt) 
+
+#selecting the data
+exa2 <- gtcars %>% 
+  select(mfr, hp) %>% 
+  group_by(mfr) %>% 
+  summarise(mean(hp))
+
+#choosing colors
+q_colors =  19 
+v_colors =  viridis(q_colors, option ="D")
+
+#creating table
+gt(exa2) %>% 
+  data_color(columns=vars("mean(hp)"), 
+             color=scales::col_bin( bins=c(100, 200, 300, 400, 500, 600,700), 
+             palette = v_colors, 
+             domain=c(0, 700)) ) 
 ```

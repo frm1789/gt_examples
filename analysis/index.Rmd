@@ -10,10 +10,10 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ```
 
 
-# Welcome 
-This is a small list with 25 visualization using gt Package.  
+# Welcome
+This is a small list with 25 visualization using gt Package.
 
-## What is this?  
+## What is this?
 
 GT package is one of the most amazing package to create tables, and we want to show a gallery of examples with full R code to encourage you to use it in your projects.
 
@@ -66,7 +66,8 @@ sp500 %>%
 
 ## 2. Horizontal table
 
-## 3. Table with references 
+## 3. Table with references
+
 This example is from [Table
 1](http://www.aclweb.org/anthology/W11-0705)
 From proceedings of the Workshop on Language in Social Media (LSM 2011), pages 30–38, Portland, Oregon, 23 June 2011. (c) 2011 Association for Computational Linguistics
@@ -83,7 +84,7 @@ gt(exa) %>%
              english="English expansion") %>%
   tab_source_note(
     source_note = "Table 1: Example acrynom and their expansion in the acronym dictionary."
-  ) 
+  )
 
 ```
 
@@ -180,4 +181,38 @@ gt(tab) %>%
                B_proportion = "(%)") %>%
     tab_spanner(label="allele in DO-358 microbiome",
                 columns=matches("^[AB]_"))
+```
+
+## 7. Table of coefficients
+
+For a table of estimated regression coefficients from the fit of a
+linear model, you might first want to use the
+[broom](https://broom.tidyverse.org) package to tidy the output.
+
+```{r tab7_lm_broom}
+lm_out <- lm(Volume ~ Height * Girth, data=trees)
+broom::tidy(lm_out) %>%
+    gt(rowname_col="term") %>%
+    tab_stubhead_label("term") %>%
+    fmt_number(column=matches("^[^p]"), decimals=2) %>%
+    fmt_number(column=matches("^p"), decimals=6) %>%
+    cols_label(std.error="SE",
+               statistic="t stat")
+```
+
+
+## 8. Compare of fit of multiple model
+
+To compare the fit of multiple models, you may be interested in the
+[gtsummary](https://github.com/vincentarelbundock/gtsummary) package.
+For example, here is a comparison of the fit of a linear model with and
+without an interaction term.
+
+```{r tab8_gt}
+lm_add <- lm(Volume ~ Height + Girth, data=trees)
+lm_int <- lm(Volume ~ Height * Girth, data=trees)
+list(add=lm_add, int=lm_int) %>%
+    gtsummary::gtsummary(statistic="conf.int") %>%
+    cols_label(add="Additive",
+               int="Interactive")
 ```

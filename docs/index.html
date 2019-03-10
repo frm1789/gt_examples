@@ -419,7 +419,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -428,7 +428,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -440,7 +440,7 @@ div.section {
 <strong>Last updated:</strong> 2019-03-10
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>gt_examples/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -456,12 +456,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -516,10 +516,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreec18da9aca01a154e60b8a9b6ce335ed544e59bc6targetblankc18da9aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/c18da9aca01a154e60b8a9b6ce335ed544e59bc6" target="_blank">c18da9a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree866f08c341b6ab1054405b48b3dfc978b16ee6ddtargetblank866f08ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/866f08c341b6ab1054405b48b3dfc978b16ee6dd" target="_blank">866f08c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreec18da9aca01a154e60b8a9b6ce335ed544e59bc6targetblankc18da9aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree866f08c341b6ab1054405b48b3dfc978b16ee6ddtargetblank866f08ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -536,9 +536,6 @@ Untracked files:
     Untracked:  data/gt_datasets.svg
     Untracked:  trash.Rmd
     Untracked:  trash2.R
-
-Unstaged changes:
-    Conflicted: analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -579,6 +576,40 @@ Message
 <tbody>
 <tr>
 <td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/866f08c341b6ab1054405b48b3dfc978b16ee6dd/analysis/index.Rmd" target="_blank">866f08c</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Add example of colors from viridis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/frm1789/myproject/866f08c341b6ab1054405b48b3dfc978b16ee6dd/docs/index.html" target="_blank">866f08c</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Add example of colors from viridis
+</td>
+</tr>
+<tr>
+<td>
 html
 </td>
 <td>
@@ -609,6 +640,57 @@ frm1789
 </td>
 <td>
 Change style
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/c344bb13b8b3a16cd0c9198bc1bd1238fc99209f/analysis/index.Rmd" target="_blank">c344bb1</a>
+</td>
+<td>
+Karl Broman
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+(Oops I forgot to pull before I’d committed and pushed)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/635662bd0fc2bb752dbd5e80e99eb3c7cc202a88/analysis/index.Rmd" target="_blank">635662b</a>
+</td>
+<td>
+Karl Broman
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Add broom and gtsummary examples
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/ca42aa0d1031c9cebf1d2047ff5559f898d95b85/analysis/index.Rmd" target="_blank">ca42aa0</a>
+</td>
+<td>
+Karl Broman
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Remove trailing white space
 </td>
 </tr>
 <tr>

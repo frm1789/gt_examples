@@ -419,10 +419,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree5b05b018e1ae19880e85414a4fb68e0af65bec1dtargetblank5b05b01a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/5b05b018e1ae19880e85414a4fb68e0af65bec1d" target="_blank">5b05b01</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreecbb34ac9329d34043df66a68721db4fd42a0f2f0targetblankcbb34aca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/cbb34ac9329d34043df66a68721db4fd42a0f2f0" target="_blank">cbb34ac</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree5b05b018e1ae19880e85414a4fb68e0af65bec1dtargetblank5b05b01a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreecbb34ac9329d34043df66a68721db4fd42a0f2f0targetblankcbb34aca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -481,6 +481,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/frm1789/myproject/blob/cbb34ac9329d34043df66a68721db4fd42a0f2f0/analysis/index.Rmd" target="_blank">cbb34ac</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+merge origin/master
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/frm1789/myproject/2d0d22e8776320c424e871b86a80bbcecdf9cf16/docs/index.html" target="_blank">2d0d22e</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/frm1789/myproject/blob/5b05b018e1ae19880e85414a4fb68e0af65bec1d/analysis/index.Rmd" target="_blank">5b05b01</a>
 </td>
 <td>
@@ -491,6 +525,40 @@ frm1789
 </td>
 <td>
 Change style
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/21969434986d8952313d170aa43c496bd3f488df/analysis/index.Rmd" target="_blank">2196943</a>
+</td>
+<td>
+Karl Broman
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Add a 6th example, similar to the 5th
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/8383cd608904007beb578d1312f72d5257a5929e/analysis/index.Rmd" target="_blank">8383cd6</a>
+</td>
+<td>
+Karl Broman
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Add example with counts and percentages
 </td>
 </tr>
 <tr>
@@ -2038,7 +2106,670 @@ gt(tab) %&gt;%
 </table>
 <!--gt table end-->
 </div>
-<br> <br>
+</div>
+<div id="counts-and-percentages" class="section level2">
+<h2>5. Counts and percentages</h2>
+<p>This example is Table S2 of <a href="https://doi.org/10.1101/529040">Lobo et al. bioRxiv doi:10.1101/529040</a>, with columns containing both counts and percentages, with the percentages in parentheses.</p>
+<pre class="r"><code>tab &lt;- data.frame(A_count = c(8863572, 2870063, 671722),
+                  A_proportion=c(0.853601028762177, 0.727484285290261, 0.556184650236973),
+                  B_count = c(1520169, 1075126, 536010),
+                  B_proportion=c(0.146398971237823, 0.272515714709739, 0.443815349763027),
+                  row.names=c(&quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;))
+tab$genotype &lt;- rownames(tab)
+
+gt(tab, rowname_col=&quot;genotype&quot;) %&gt;%
+    fmt_percent(ends_with(&quot;proportion&quot;),
+                decimals=1,
+                pattern=&quot;({x})&quot;) %&gt;%
+    cols_align(&quot;center&quot;) %&gt;%
+    cols_align(&quot;right&quot;, columns=ends_with(&quot;count&quot;)) %&gt;%
+    cols_label(A_count = &quot;A count&quot;,
+               A_proportion = &quot;(%)&quot;,
+               B_count = &quot;B count&quot;,
+               B_proportion = &quot;(%)&quot;) %&gt;%
+    tab_spanner(label=&quot;allele in DO-360 microbiome&quot;,
+                columns=TRUE) %&gt;%
+    tab_stubhead_label(&quot;DO-360 genotype&quot;)</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#caslzjvfto .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#caslzjvfto .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#caslzjvfto .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#caslzjvfto .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#caslzjvfto .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#caslzjvfto .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#caslzjvfto .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#caslzjvfto .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#caslzjvfto .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#caslzjvfto .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#caslzjvfto .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#caslzjvfto .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#caslzjvfto .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#caslzjvfto .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#caslzjvfto .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#caslzjvfto .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#caslzjvfto .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#caslzjvfto .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#caslzjvfto .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#caslzjvfto .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#caslzjvfto .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#caslzjvfto .gt_center {
+  text-align: center;
+}
+
+#caslzjvfto .gt_left {
+  text-align: left;
+}
+
+#caslzjvfto .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#caslzjvfto .gt_font_normal {
+  font-weight: normal;
+}
+
+#caslzjvfto .gt_font_bold {
+  font-weight: bold;
+}
+
+#caslzjvfto .gt_font_italic {
+  font-style: italic;
+}
+
+#caslzjvfto .gt_super {
+  font-size: 65%;
+}
+
+#caslzjvfto .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="caslzjvfto" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='2' colspan='1'>DO-360 genotype</th>
+<th class='gt_col_heading gt_column_spanner gt_center' rowspan='1' colspan='4'>allele in DO-360 microbiome</th>
+</tr>
+<tr>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>A count</th>
+<th class='gt_col_heading gt_center' rowspan='1' colspan='1'>(%)</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>B count</th>
+<th class='gt_col_heading gt_center' rowspan='1' colspan='1'>(%)</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_stub gt_left'>AA</td>
+<td class='gt_row gt_right'>8863572</td>
+<td class='gt_row gt_center'>(85.4%)</td>
+<td class='gt_row gt_right'>1520169</td>
+<td class='gt_row gt_center'>(14.6%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>AB</td>
+<td class='gt_row gt_right gt_striped'>2870063</td>
+<td class='gt_row gt_center gt_striped'>(72.7%)</td>
+<td class='gt_row gt_right gt_striped'>1075126</td>
+<td class='gt_row gt_center gt_striped'>(27.3%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_stub gt_left'>BB</td>
+<td class='gt_row gt_right'>671722</td>
+<td class='gt_row gt_center'>(55.6%)</td>
+<td class='gt_row gt_right'>536010</td>
+<td class='gt_row gt_center'>(44.4%)</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+</div>
+<div id="counts-and-percentages-with-an-extra-column." class="section level2">
+<h2>6. Counts and percentages, with an extra column.</h2>
+<p>This example is Table S4 of <a href="https://doi.org/10.1101/529040">Lobo et al. bioRxiv doi:10.1101/529040</a>. It is much like example 5, but has an additional column at the beginning.</p>
+<pre class="r"><code>tab &lt;- data.frame(DO358_genotype = c(&quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;AB&quot;, &quot;AB&quot;, &quot;BB&quot;, &quot;BB&quot;, &quot;BB&quot;),
+                  DO344_genotype = c(&quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;BB&quot;),
+                  A_count = c(2394215, 869613, 103036, 686970, 297500, 55982, 73727, 47000, 542),
+                  A_proportion = c(0.99747944497795, 0.794823306181542, 0.590911176362635,
+                                   0.718274560155246, 0.51429835873996, 0.299220173924198,
+                                   0.428685226532701, 0.219100940269354, 0.00457986885689177),
+                   B_count = c(6050, 224483, 71332, 269447, 280958, 131111, 98257, 167513, 117802),
+                   B_proportion = c(0.00252055502204965, 0.205176693818458, 0.409088823637365,
+                                    0.281725439844754, 0.48570164126004, 0.700779826075802,
+                                    0.571314773467299, 0.780899059730646, 0.995420131143108),
+                   stringsAsFactors=FALSE)
+
+gt(tab) %&gt;%
+    fmt_percent(ends_with(&quot;proportion&quot;),
+                decimals=1,
+                pattern=&quot;({x})&quot;) %&gt;%
+    cols_align(&quot;right&quot;) %&gt;%
+    cols_align(&quot;center&quot;, columns=ends_with(&quot;genotype&quot;)) %&gt;%
+    cols_label(DO358_genotype=&quot;DO 358 genotype&quot;,
+               DO344_genotype=&quot;DO 344 genotype&quot;,
+               A_count = &quot;A count&quot;,
+               A_proportion = &quot;(%)&quot;,
+               B_count = &quot;B count&quot;,
+               B_proportion = &quot;(%)&quot;) %&gt;%
+    tab_spanner(label=&quot;allele in DO-358 microbiome&quot;,
+                columns=matches(&quot;^[AB]_&quot;))</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#dykqgbrtnw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#dykqgbrtnw .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#dykqgbrtnw .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dykqgbrtnw .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dykqgbrtnw .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#dykqgbrtnw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dykqgbrtnw .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#dykqgbrtnw .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#dykqgbrtnw .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#dykqgbrtnw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#dykqgbrtnw .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#dykqgbrtnw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dykqgbrtnw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dykqgbrtnw .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#dykqgbrtnw .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#dykqgbrtnw .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#dykqgbrtnw .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#dykqgbrtnw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#dykqgbrtnw .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#dykqgbrtnw .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#dykqgbrtnw .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#dykqgbrtnw .gt_center {
+  text-align: center;
+}
+
+#dykqgbrtnw .gt_left {
+  text-align: left;
+}
+
+#dykqgbrtnw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dykqgbrtnw .gt_font_normal {
+  font-weight: normal;
+}
+
+#dykqgbrtnw .gt_font_bold {
+  font-weight: bold;
+}
+
+#dykqgbrtnw .gt_font_italic {
+  font-style: italic;
+}
+
+#dykqgbrtnw .gt_super {
+  font-size: 65%;
+}
+
+#dykqgbrtnw .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="dykqgbrtnw" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'>DO 358 genotype</th>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'>DO 344 genotype</th>
+<th class='gt_col_heading gt_column_spanner gt_center' rowspan='1' colspan='4'>allele in DO-358 microbiome</th>
+</tr>
+<tr>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>A count</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>(%)</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>B count</th>
+<th class='gt_col_heading gt_NA' rowspan='1' colspan='1'>(%)</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_center'>AA</td>
+<td class='gt_row gt_center'>AA</td>
+<td class='gt_row gt_right'>2394215</td>
+<td class='gt_row gt_right'>(99.7%)</td>
+<td class='gt_row gt_right'>6050</td>
+<td class='gt_row gt_right'>(0.3%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center gt_striped'>AA</td>
+<td class='gt_row gt_center gt_striped'>AB</td>
+<td class='gt_row gt_right gt_striped'>869613</td>
+<td class='gt_row gt_right gt_striped'>(79.5%)</td>
+<td class='gt_row gt_right gt_striped'>224483</td>
+<td class='gt_row gt_right gt_striped'>(20.5%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center'>AA</td>
+<td class='gt_row gt_center'>BB</td>
+<td class='gt_row gt_right'>103036</td>
+<td class='gt_row gt_right'>(59.1%)</td>
+<td class='gt_row gt_right'>71332</td>
+<td class='gt_row gt_right'>(40.9%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center gt_striped'>AB</td>
+<td class='gt_row gt_center gt_striped'>AA</td>
+<td class='gt_row gt_right gt_striped'>686970</td>
+<td class='gt_row gt_right gt_striped'>(71.8%)</td>
+<td class='gt_row gt_right gt_striped'>269447</td>
+<td class='gt_row gt_right gt_striped'>(28.2%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center'>AB</td>
+<td class='gt_row gt_center'>AB</td>
+<td class='gt_row gt_right'>297500</td>
+<td class='gt_row gt_right'>(51.4%)</td>
+<td class='gt_row gt_right'>280958</td>
+<td class='gt_row gt_right'>(48.6%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center gt_striped'>AB</td>
+<td class='gt_row gt_center gt_striped'>BB</td>
+<td class='gt_row gt_right gt_striped'>55982</td>
+<td class='gt_row gt_right gt_striped'>(29.9%)</td>
+<td class='gt_row gt_right gt_striped'>131111</td>
+<td class='gt_row gt_right gt_striped'>(70.1%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center'>BB</td>
+<td class='gt_row gt_center'>AA</td>
+<td class='gt_row gt_right'>73727</td>
+<td class='gt_row gt_right'>(42.9%)</td>
+<td class='gt_row gt_right'>98257</td>
+<td class='gt_row gt_right'>(57.1%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center gt_striped'>BB</td>
+<td class='gt_row gt_center gt_striped'>AB</td>
+<td class='gt_row gt_right gt_striped'>47000</td>
+<td class='gt_row gt_right gt_striped'>(21.9%)</td>
+<td class='gt_row gt_right gt_striped'>167513</td>
+<td class='gt_row gt_right gt_striped'>(78.1%)</td>
+</tr>
+<tr>
+<td class='gt_row gt_center'>BB</td>
+<td class='gt_row gt_center'>BB</td>
+<td class='gt_row gt_right'>542</td>
+<td class='gt_row gt_right'>(0.5%)</td>
+<td class='gt_row gt_right'>117802</td>
+<td class='gt_row gt_right'>(99.5%)</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div> <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information

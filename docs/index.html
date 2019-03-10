@@ -419,10 +419,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreef289a17cc14ebc846c59e4598f2fa41ea7b09a3ftargetblankf289a17a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/f289a17cc14ebc846c59e4598f2fa41ea7b09a3f" target="_blank">f289a17</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree5b05b018e1ae19880e85414a4fb68e0af65bec1dtargetblank5b05b01a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/frm1789/myproject/tree/5b05b018e1ae19880e85414a4fb68e0af65bec1d" target="_blank">5b05b01</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttreef289a17cc14ebc846c59e4598f2fa41ea7b09a3ftargetblankf289a17a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomfrm1789myprojecttree5b05b018e1ae19880e85414a4fb68e0af65bec1dtargetblank5b05b01a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -437,6 +437,7 @@ Untracked files:
     Untracked:  code/DeletethisFile.Rmd
     Untracked:  code/vertical_table.R
     Untracked:  data/gt_datasets.svg
+    Untracked:  trash.Rmd
 
 </code></pre>
 <p>
@@ -475,6 +476,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/frm1789/myproject/blob/5b05b018e1ae19880e85414a4fb68e0af65bec1d/analysis/index.Rmd" target="_blank">5b05b01</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Change style
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/frm1789/myproject/a3357ac6bdd8d2efcd3c456bad0540d87855c33c/docs/index.html" target="_blank">a3357ac</a>
+</td>
+<td>
+frm1789
+</td>
+<td>
+2019-03-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1057,7 +1092,7 @@ Start workflowr project.
 </div>
 <div id="how-to-create-a-good-table" class="section level2">
 <h2>How to create a good table?</h2>
-<p>An informal definition could be: “A good table sirve para leer de la forma mas rapida y facil un conjunto de datos numericos”.</p>
+<p>An informal definition could be: “A good table is used to read a set of numerical data in the quickest and easiest way”</p>
 </div>
 </div>
 <div id="examples-about-how-to-use-this-amazing-package" class="section level1">
@@ -1414,29 +1449,19 @@ sp500 %&gt;%
 </div>
 <div id="table-with-references" class="section level2">
 <h2>3. Table with references</h2>
-</div>
-<div id="table-with-spanning-columns" class="section level2">
-<h2>4. Table with spanning columns</h2>
-<p>This example is <a href="http://www.genetics.org/content/genetics/suppl/2012/06/28/genetics.112.142448.DC1/TableS2.pdf">Table S2</a> in <a href="https://doi.org/10.1534/genetics.112.142448">Broman et al. (2015) Genetics 192:267-279 doi:10.1534/genetics.112.142448</a></p>
+<p>This example is from <a href="http://www.aclweb.org/anthology/W11-0705">Table 1</a> From proceedings of the Workshop on Language in Social Media (LSM 2011), pages 30–38, Portland, Oregon, 23 June 2011. (c) 2011 Association for Computational Linguistics</p>
 <pre class="r"><code># the table&#39;s data
-tab &lt;- data.frame(n=c(300, 450, 600),
-                  all_part_all_crosses = c(4.56, 4.51, 4.49),
-                  all_part_min_crosses = c(4.48, 4.47, 4.44),
-                  tree_part_all_crosses = c(4.43, 4.36, 4.32),
-                  tree_part_min_crosses = c(4.33, 4.33, 4.29))
+exa &lt;- data.frame( acronym = c(&quot;gr8, gr8t&quot;, &quot;lol&quot;, &quot;rotf&quot;, &quot;bff&quot;),
+                  english = c(&quot;great&quot;,&quot;laughing out loud&quot;, &quot;rolling on the floor&quot;, &quot;best friend forever&quot;))
 
 # create the gt table
-gt(tab) %&gt;%
-    cols_align(&quot;center&quot;) %&gt;%
-    cols_label(n=&quot;total sample size&quot;,
-               all_part_all_crosses=&quot;all crosses&quot;,
-               all_part_min_crosses=&quot;min crosses&quot;,
-               tree_part_all_crosses=&quot;all crosses&quot;,
-               tree_part_min_crosses=&quot;min crosses&quot;) %&gt;%
-    tab_spanner(label=&quot;Tree partitions&quot;,
-                starts_with(&quot;tree&quot;)) %&gt;%
-    tab_spanner(label=&quot;All partitions&quot;,
-                starts_with(&quot;all&quot;))</code></pre>
+gt(exa) %&gt;%
+  cols_align(&quot;left&quot;) %&gt;%
+  cols_label(acronym=&quot;Acronym&quot;,
+             english=&quot;English expansion&quot;) %&gt;%
+  tab_source_note(
+    source_note = &quot;Table 1: Example acrynom and their expansion in the acronym dictionary.&quot;
+  ) </code></pre>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1679,6 +1704,302 @@ gt(tab) %&gt;%
 }
 </style>
 <div id="dfrukkkwjr" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Acronym</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>English expansion</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>gr8, gr8t</td>
+<td class='gt_row gt_left'>great</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>lol</td>
+<td class='gt_row gt_left gt_striped'>laughing out loud</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>rotf</td>
+<td class='gt_row gt_left'>rolling on the floor</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>bff</td>
+<td class='gt_row gt_left gt_striped'>best friend forever</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan='3' class='gt_sourcenote'>Table 1: Example acrynom and their expansion in the acronym dictionary.</td>
+</tr>
+</tfoot>
+</table>
+<!--gt table end-->
+</div>
+</div>
+<div id="table-with-spanning-columns" class="section level2">
+<h2>4. Table with spanning columns</h2>
+<p>This example is <a href="http://www.genetics.org/content/genetics/suppl/2012/06/28/genetics.112.142448.DC1/TableS2.pdf">Table S2</a> in <a href="https://doi.org/10.1534/genetics.112.142448">Broman et al. (2015) Genetics 192:267-279 doi:10.1534/genetics.112.142448</a></p>
+<pre class="r"><code># the table&#39;s data
+tab &lt;- data.frame(n=c(300, 450, 600),
+                  all_part_all_crosses = c(4.56, 4.51, 4.49),
+                  all_part_min_crosses = c(4.48, 4.47, 4.44),
+                  tree_part_all_crosses = c(4.43, 4.36, 4.32),
+                  tree_part_min_crosses = c(4.33, 4.33, 4.29))
+
+# create the gt table
+gt(tab) %&gt;%
+    cols_align(&quot;center&quot;) %&gt;%
+    cols_label(n=&quot;total sample size&quot;,
+               all_part_all_crosses=&quot;all crosses&quot;,
+               all_part_min_crosses=&quot;min crosses&quot;,
+               tree_part_all_crosses=&quot;all crosses&quot;,
+               tree_part_min_crosses=&quot;min crosses&quot;) %&gt;%
+    tab_spanner(label=&quot;Tree partitions&quot;,
+                starts_with(&quot;tree&quot;)) %&gt;%
+    tab_spanner(label=&quot;All partitions&quot;,
+                starts_with(&quot;all&quot;))</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ljpyvczcqx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#ljpyvczcqx .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#ljpyvczcqx .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ljpyvczcqx .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ljpyvczcqx .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#ljpyvczcqx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ljpyvczcqx .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#ljpyvczcqx .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#ljpyvczcqx .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#ljpyvczcqx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#ljpyvczcqx .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#ljpyvczcqx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ljpyvczcqx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ljpyvczcqx .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#ljpyvczcqx .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#ljpyvczcqx .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#ljpyvczcqx .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#ljpyvczcqx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#ljpyvczcqx .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#ljpyvczcqx .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#ljpyvczcqx .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#ljpyvczcqx .gt_center {
+  text-align: center;
+}
+
+#ljpyvczcqx .gt_left {
+  text-align: left;
+}
+
+#ljpyvczcqx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ljpyvczcqx .gt_font_normal {
+  font-weight: normal;
+}
+
+#ljpyvczcqx .gt_font_bold {
+  font-weight: bold;
+}
+
+#ljpyvczcqx .gt_font_italic {
+  font-style: italic;
+}
+
+#ljpyvczcqx .gt_super {
+  font-size: 65%;
+}
+
+#ljpyvczcqx .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="ljpyvczcqx" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <tr>
 <th class='gt_col_heading gt_center' rowspan='2' colspan='1'>total sample size</th>

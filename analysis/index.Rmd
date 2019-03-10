@@ -83,7 +83,7 @@ gt(exa) %>%
   cols_label(acronym="Acronym",
              english="English expansion") %>%
   tab_source_note(
-    source_note = "Table 1: Example acrynom and their expansion in the acronym dictionary."
+    source_note = "Table 1: Example acronym and their expansion in the acronym dictionary."
   )
 
 ```

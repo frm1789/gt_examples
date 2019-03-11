@@ -8,5 +8,5 @@ A [workflowr][] project.
 
 ### Contributors at chirunconf
 
-Karl Borman  
-Florencia Mangini
+* Karl Borman  
+* Florencia Mangini

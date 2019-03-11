@@ -1,6 +1,6 @@
-# gt_examples
+# Gallery of examples using gt package
 
-Examples of tables with the [gt](https://gt.rstudio.com) package.
+Examples of tables using the [gt](https://gt.rstudio.com) package.
 
 A [workflowr][] project.
 
